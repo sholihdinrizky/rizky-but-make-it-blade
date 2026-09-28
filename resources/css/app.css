@@ -1,12 +1,8 @@
 @import 'tailwindcss';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
-@import '@fontsource/inter/700.css';
-@import '@fontsource/space-grotesk/400.css';
-@import '@fontsource/space-grotesk/500.css';
-@import '@fontsource/space-grotesk/600.css';
-@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/dm-sans/400.css';
+@import '@fontsource/dm-sans/500.css';
+@import '@fontsource/dm-sans/600.css';
+@import '@fontsource/dm-sans/700.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -14,51 +10,36 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
 
-    --color-navy-50: #f0f4f8;
-    --color-navy-100: #d9e2ec;
-    --color-navy-200: #bcccdc;
-    --color-navy-300: #9fb3c8;
-    --color-navy-400: #829ab1;
-    --color-navy-500: #627d98;
-    --color-navy-600: #486581;
-    --color-navy-700: #334e68;
-    --color-navy-800: #243b53;
-    --color-navy-900: #102a43;
-    --color-navy-950: #0a1f33;
+    /* Charcoal shell */
+    --color-charcoal: #1c1b1a;
 
-    --color-teal-50: #effcf6;
-    --color-teal-100: #c6f7e2;
-    --color-teal-200: #8eedc7;
-    --color-teal-300: #65d6ad;
-    --color-teal-400: #3ebd93;
-    --color-teal-500: #27ab83;
-    --color-teal-600: #199473;
-    --color-teal-700: #147d64;
-    --color-teal-800: #0c6b58;
-    --color-teal-900: #014d40;
+    /* Main panels */
+    --color-panel-light: #f3f2f0;
+    --color-panel-dark: #211f1d;
 
-    --color-accent-50: #fff3e0;
-    --color-accent-100: #ffe0b2;
-    --color-accent-200: #ffcc80;
-    --color-accent-300: #ffb74d;
-    --color-accent-400: #ffa726;
-    --color-accent-500: #ff9800;
-    --color-accent-600: #fb8c00;
-    --color-accent-700: #f57c00;
+    /* Pills & Cards */
+    --color-pill-light: #ffffff;
+    --color-pill-dark: #2b2825;
 
-    --color-surface-light: #ffffff;
-    --color-surface-raised: #f8fafc;
-    --color-surface-dark: #0f1729;
-    --color-surface-dark-raised: #1a2744;
+    /* Brand/Accent */
+    --color-orange: #e07a1f;
+
+    /* Text */
+    --color-muted-light: #7a746d;
+    --color-muted-dark: #a8a096;
+    --color-text-light: #1c1b1a;
+    --color-text-dark: #e8e6e3;
 
     --radius-sm: 0.375rem;
     --radius-md: 0.5rem;
     --radius-lg: 0.75rem;
     --radius-xl: 1rem;
     --radius-2xl: 1.25rem;
+    --radius-3xl: 1.5rem;
+    --radius-full: 9999px;
 }
 
 /* View Transitions */
@@ -90,13 +71,13 @@
     to { opacity: 1; }
 }
 
-/* Navbar persists across transitions */
-.site-navbar {
-    view-transition-name: navbar;
+/* Sidebar persists across transitions */
+.site-sidebar {
+    view-transition-name: sidebar;
 }
 
-::view-transition-old(navbar),
-::view-transition-new(navbar) {
+::view-transition-old(sidebar),
+::view-transition-new(sidebar) {
     animation: none;
 }
 
@@ -109,7 +90,7 @@
 
 html {
     scrollbar-gutter: stable;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 2rem;
 }
 
 /* Skip link */
@@ -119,7 +100,7 @@ html {
     left: 1rem;
     z-index: 100;
     padding: 0.75rem 1.5rem;
-    background: var(--color-teal-600);
+    background: var(--color-orange);
     color: white;
     border-radius: var(--radius-md);
     font-weight: 600;
@@ -134,7 +115,7 @@ html {
 /* Progressive enhancement: hide animated elements before JS loads */
 html.js [data-reveal] {
     opacity: 0;
-    transform: translateY(1.5rem);
+    transform: translateY(1rem);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -156,23 +137,32 @@ html.js [data-reveal].revealed {
 
 /* Focus ring */
 :focus-visible {
-    outline: 2px solid var(--color-teal-500);
+    outline: 2px solid var(--color-orange);
     outline-offset: 2px;
 }
 
-/* Scene canvas container */
-.scene-container {
-    pointer-events: none;
-    position: relative;
+/* 3D Flip Card Utilities */
+.perspective-1000 {
+    perspective: 1000px;
 }
-
-.scene-container canvas {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+.backface-hidden {
+    backface-visibility: hidden;
+}
+.rotate-y-180 {
+    transform: rotateY(180deg);
 }
 
 /* Anchor scroll margin */
 [id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 2rem;
+}
+
+/* Shell Background (Charcoal with Copper glow) */
+body {
+    background-color: var(--color-charcoal);
+    background-image: radial-gradient(circle at 10% 90%, rgba(224, 122, 31, 0.15) 0%, transparent 40%);
+    background-attachment: fixed;
 }
