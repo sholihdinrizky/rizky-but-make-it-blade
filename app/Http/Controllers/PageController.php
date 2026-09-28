@@ -90,7 +90,7 @@ class PageController extends Controller
             'program' => 'Informatics Engineering',
             'universitas' => 'Institut Teknologi Sepuluh Nopember',
             'lokasi' => 'Surabaya, Indonesia',
-            'bio' => '<!-- EDIT ME: Add a short, professional summary here -->',
+            'bio' => 'A highly motivated Informatics Engineering student at Institut Teknologi Sepuluh Nopember with hands-on experience in Full-Stack Software Engineering, Event Operations, and Administration. Passionate about building scalable backend architectures and driving impactful tech events.',
             'foto' => 'images/rizky.jpg',
         ];
 
@@ -124,8 +124,9 @@ class PageController extends Controller
         ];
 
         $interests = [
-            '<!-- EDIT ME: Add Interest 1 -->',
-            '<!-- EDIT ME: Add Interest 2 -->',
+            'Software Engineering & Backend Development',
+            'Artificial Intelligence & Machine Learning',
+            'Project Management & Event Organizing',
         ];
 
         return view('profil', compact('theme', 'nav', 'profil', 'skills', 'experience', 'interests'))
