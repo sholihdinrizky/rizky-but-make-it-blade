@@ -90,7 +90,7 @@ class PageController extends Controller
             'program' => 'Informatics Engineering',
             'universitas' => 'Institut Teknologi Sepuluh Nopember',
             'lokasi' => 'Surabaya, Indonesia',
-            'bio' => 'A highly motivated Informatics Engineering student at Institut Teknologi Sepuluh Nopember with hands-on experience in Full-Stack Software Engineering, Event Operations, and Administration. Passionate about building scalable backend architectures and driving impactful tech events.',
+            'bio' => 'An Informatics Engineering student at ITS passionate about building scalable full-stack software and backend architectures.',
             'foto' => 'images/rizky.jpg',
         ];
 
