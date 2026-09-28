@@ -88,9 +88,9 @@ class PageController extends Controller
             'nama' => 'Muhammad Sholihuddin Rizky',
             'nrp' => '5025241171',
             'program' => 'Informatics Engineering',
-            'universitas' => 'Institut Teknologi Sepuluh Nopember (ITS)',
+            'universitas' => 'Institut Teknologi Sepuluh Nopember',
             'lokasi' => 'Surabaya, Indonesia',
-            'bio' => 'Informatics Engineering student at ITS with a passion for software engineering, systems programming, and AI-driven solutions. Experienced in full-stack development with a focus on building robust, scalable applications.',
+            'bio' => '<!-- EDIT ME: Add a short, professional summary here -->',
             'foto' => 'images/rizky.jpg',
         ];
 
@@ -99,18 +99,15 @@ class PageController extends Controller
         $experience = [
             [
                 'role' => 'Software Engineering Intern',
-                'company' => 'Technology Company',
-                'period' => '2024 – 2025',
-                // EDIT ME: Update experience details
-                'desc' => 'Contributed to backend services and internal tools. Built REST APIs, optimized database queries, and participated in code reviews across multiple team projects.',
+                'company' => '<!-- EDIT ME: Add company name -->',
+                'period' => '<!-- EDIT ME: Add period -->',
+                'desc' => '<!-- EDIT ME: Add factual details about the internship -->',
             ],
         ];
 
         $interests = [
-            'Artificial Intelligence & Machine Learning',
-            'Systems Programming & Low-Level Development',
-            'Full-Stack Web Development',
-            'Open Source Contribution',
+            '<!-- EDIT ME: Add Interest 1 -->',
+            '<!-- EDIT ME: Add Interest 2 -->',
         ];
 
         return view('profil', compact('theme', 'nav', 'profil', 'skills', 'experience', 'interests'))

@@ -3,123 +3,126 @@
 @section('title', 'Profile')
 
 @section('content')
-    <section class="py-12 sm:py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {{-- Profile header --}}
-            <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 mb-12" data-reveal>
-                {{-- Photo with MR initials fallback --}}
-                @php
-                    $photoExists = file_exists(public_path($profil['foto']));
-                @endphp
-
-                @if($photoExists)
-                    <img src="{{ asset($profil['foto']) }}"
-                         alt="Photo of {{ $profil['nama'] }}"
-                         width="160"
-                         height="160"
-                         class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover ring-4 ring-teal-100 dark:ring-teal-900/40 shadow-lg flex-shrink-0">
-                @else
-                    {{-- Initials fallback --}}
-                    <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl bg-gradient-to-br from-navy-700 to-teal-700 dark:from-navy-600 dark:to-teal-600 flex items-center justify-center ring-4 ring-teal-100 dark:ring-teal-900/40 shadow-lg flex-shrink-0"
-                         role="img"
-                         aria-label="Profile photo placeholder for {{ $profil['nama'] }}">
-                        <span class="text-4xl sm:text-5xl font-display font-bold text-white tracking-wide">MR</span>
-                    </div>
-                @endif
-
-                <div class="text-center sm:text-left">
-                    {{-- EDIT ME: Update name and personal details --}}
-                    <h1 class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-navy-900 dark:text-white">
+    <div class="h-full p-4 sm:p-8 lg:p-12 overflow-y-auto">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-7xl mx-auto">
+            
+            {{-- Left Column: Pills & Info (4 cols) --}}
+            <div class="lg:col-span-4 flex flex-col gap-4 order-2 lg:order-1" data-reveal>
+                
+                {{-- Name & Status --}}
+                <div class="bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] p-6 rounded-3xl border border-black/5 dark:border-white/5 shadow-sm">
+                    <h1 class="font-display font-bold text-3xl text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] mb-1">
                         {{ $profil['nama'] }}
                     </h1>
-                    <p class="mt-1 text-teal-600 dark:text-teal-400 font-medium">{{ $profil['nrp'] }}</p>
-                    <p class="mt-1 text-navy-600 dark:text-navy-300">{{ $profil['program'] }}</p>
-                    <p class="text-navy-500 dark:text-navy-400">{{ $profil['universitas'] }}</p>
-                    <p class="text-sm text-navy-400 dark:text-navy-500 mt-1">{{ $profil['lokasi'] }}</p>
+                    <p class="text-[var(--color-orange)] font-medium mb-4">{{ $profil['nrp'] }}</p>
+                    
+                    <div class="flex items-center gap-2 text-sm text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">
+                        <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                        Student
+                    </div>
+                </div>
+
+                {{-- Fact Pills --}}
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] p-4 rounded-3xl border border-black/5 dark:border-white/5 flex flex-col justify-center shadow-sm">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mb-1">Program</span>
+                        <span class="text-sm font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] leading-tight">{{ $profil['program'] }}</span>
+                    </div>
+                    <div class="bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] p-4 rounded-3xl border border-black/5 dark:border-white/5 flex flex-col justify-center shadow-sm">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mb-1">University</span>
+                        <span class="text-sm font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] leading-tight">{{ $profil['universitas'] }}</span>
+                    </div>
+                    <div class="col-span-2 bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] p-4 rounded-3xl border border-black/5 dark:border-white/5 flex flex-col justify-center shadow-sm">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mb-1">Location</span>
+                        <span class="text-sm font-medium text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">{{ $profil['lokasi'] }}</span>
+                    </div>
+                </div>
+
+                {{-- Stats Rings (Factual) --}}
+                <div class="bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] p-6 rounded-3xl border border-black/5 dark:border-white/5 shadow-sm flex items-center justify-around">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full border-4 border-[var(--color-orange)] flex items-center justify-center font-bold text-xl text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">
+                            {{ count($skills) }}
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mt-2">Skills</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full border-4 border-green-500 flex items-center justify-center font-bold text-xl text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">
+                            {{ count($experience) }}
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mt-2">Roles</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {{-- About --}}
-                <div class="lg:col-span-2 space-y-6">
-                    <x-info-card variant="elevated" data-reveal>
-                        <x-slot:header>
-                            <h2 class="font-display font-semibold text-lg text-navy-900 dark:text-white">About</h2>
-                        </x-slot:header>
-
-                        <p class="text-navy-600 dark:text-navy-300 leading-relaxed">{{ $profil['bio'] }}</p>
-                    </x-info-card>
-
-                    {{-- Experience --}}
-                    <x-info-card variant="elevated" data-reveal>
-                        <x-slot:header>
-                            <h2 class="font-display font-semibold text-lg text-navy-900 dark:text-white">Experience</h2>
-                        </x-slot:header>
-
-                        @forelse($experience as $exp)
-                            <div class="{{ !$loop->last ? 'pb-4 mb-4 border-b border-navy-100 dark:border-navy-800' : '' }}">
-                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                                    <h3 class="font-semibold text-navy-900 dark:text-white">{{ $exp['role'] }}</h3>
-                                    <span class="text-sm text-navy-400 dark:text-navy-500">{{ $exp['period'] }}</span>
-                                </div>
-                                <p class="text-sm text-teal-600 dark:text-teal-400 font-medium mt-0.5">{{ $exp['company'] }}</p>
-                                <p class="mt-2 text-sm text-navy-600 dark:text-navy-300 leading-relaxed">{{ $exp['desc'] }}</p>
-                            </div>
-                        @empty
-                            <p class="text-navy-400 dark:text-navy-500 italic">No experience listed yet.</p>
-                        @endforelse
-
-                        <x-slot:footer>
-                            {{-- EDIT ME: Update with real experience details --}}
-                            <p class="text-xs text-navy-400 dark:text-navy-500">Experience details can be updated in the controller.</p>
-                        </x-slot:footer>
-                    </x-info-card>
+            {{-- Right Column: Photo & Details (8 cols) --}}
+            <div class="lg:col-span-8 flex flex-col gap-6 order-1 lg:order-2" data-reveal>
+                
+                {{-- Editorial Photo --}}
+                <div class="relative w-full h-64 sm:h-80 lg:h-96 rounded-[2rem] overflow-hidden shadow-lg group">
+                    @if(file_exists(public_path($profil['foto'])))
+                        <img src="{{ asset($profil['foto']) }}" alt="Rizky" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    @else
+                        <div class="w-full h-full bg-[var(--color-charcoal)] flex items-center justify-center">
+                            <span class="text-6xl font-display font-bold text-white opacity-20">MR</span>
+                        </div>
+                    @endif
+                    
+                    {{-- Gradient fade into glass card --}}
+                    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--color-panel-light)] dark:from-[var(--color-panel-dark)] to-transparent"></div>
+                    
+                    {{-- Glass Bio Card overlapping photo --}}
+                    <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 backdrop-blur-xl bg-white/60 dark:bg-[var(--color-pill-dark)]/70 border border-white/40 dark:border-white/10 p-5 sm:p-6 rounded-3xl shadow-xl">
+                        @if($profil['bio'] !== '<!-- EDIT ME: Add a short, professional summary here -->')
+                            <p class="text-sm sm:text-base text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] leading-relaxed font-medium">
+                                {{ $profil['bio'] }}
+                            </p>
+                        @else
+                            <p class="text-sm text-[var(--color-muted-light)] italic">Bio summary goes here.</p>
+                        @endif
+                    </div>
                 </div>
 
-                {{-- Sidebar --}}
-                <div class="space-y-6">
-                    {{-- Skills --}}
-                    <x-info-card variant="elevated" data-reveal>
-                        <x-slot:header>
-                            <h2 class="font-display font-semibold text-lg text-navy-900 dark:text-white">Skills</h2>
-                        </x-slot:header>
+                {{-- Pill Tabs (CSS-only via radio inputs and labels) --}}
+                <div class="mt-4">
+                    <div class="flex flex-wrap gap-2 mb-6" role="tablist">
+                        <button type="button" role="tab" aria-selected="true" class="px-6 py-2.5 rounded-full bg-[var(--color-charcoal)] dark:bg-white text-white dark:text-black font-semibold text-sm transition-colors hover:opacity-90">Experience</button>
+                        <button type="button" role="tab" aria-selected="false" class="px-6 py-2.5 rounded-full bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] border border-black/5 dark:border-white/5 text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] font-semibold text-sm transition-colors hover:bg-black/5 dark:hover:bg-white/5">Skills</button>
+                    </div>
 
+                    {{-- Tab Content: Experience --}}
+                    <div role="tabpanel" class="space-y-4">
+                        @forelse($experience as $exp)
+                            <div class="bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] p-5 sm:p-6 rounded-3xl border border-black/5 dark:border-white/5 shadow-sm">
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
+                                    <h3 class="font-bold text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] text-lg">{{ $exp['role'] }}</h3>
+                                    <span class="text-xs font-semibold text-[var(--color-orange)] bg-[var(--color-orange)]/10 px-3 py-1 rounded-full whitespace-nowrap">{{ $exp['period'] }}</span>
+                                </div>
+                                <p class="text-sm font-medium text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mb-3">{{ $exp['company'] }}</p>
+                                @if($exp['desc'] !== '<!-- EDIT ME: Add factual details about the internship -->')
+                                    <p class="text-sm text-[var(--color-text-light)] dark:text-white/80 leading-relaxed">{{ $exp['desc'] }}</p>
+                                @endif
+                            </div>
+                        @empty
+                            <p class="text-sm text-[var(--color-muted-light)] italic px-4">No experience listed.</p>
+                        @endforelse
+                    </div>
+
+                    {{-- Tab Content: Skills (Visually separate block for simplicity without complex JS) --}}
+                    <div class="mt-8 pt-8 border-t border-black/5 dark:border-white/5">
+                        <h2 class="text-sm font-bold uppercase tracking-wider text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mb-4 px-2">Tools & Tech</h2>
                         <div class="flex flex-wrap gap-2">
                             @foreach($skills as $skill)
-                                <span class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm font-medium transition-colors
-                                    {{ $loop->first ? 'bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300' : '' }}
-                                    {{ $loop->last ? 'bg-navy-100 text-navy-700 dark:bg-navy-800 dark:text-navy-300' : '' }}
-                                    {{ !$loop->first && !$loop->last ? 'bg-navy-50 text-navy-700 dark:bg-navy-800/60 dark:text-navy-300' : '' }}
-                                    hover:bg-teal-100 hover:text-teal-800 dark:hover:bg-teal-900/30 dark:hover:text-teal-300">
+                                <span class="px-4 py-2 rounded-full bg-[var(--color-pill-light)] dark:bg-[var(--color-pill-dark)] border border-black/5 dark:border-white/5 text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] text-sm font-medium shadow-sm">
                                     {{ $skill }}
                                 </span>
                             @endforeach
                         </div>
-
-                        <x-slot:footer>
-                            <p class="text-xs text-navy-400 dark:text-navy-500">{{ count($skills) }} skills · Skill #{{ $loop->iteration ?? count($skills) }}</p>
-                        </x-slot:footer>
-                    </x-info-card>
-
-                    {{-- Career Interests --}}
-                    <x-info-card variant="elevated" data-reveal>
-                        <x-slot:header>
-                            <h2 class="font-display font-semibold text-lg text-navy-900 dark:text-white">Career Interests</h2>
-                        </x-slot:header>
-
-                        <ul class="space-y-2.5">
-                            @foreach($interests as $interest)
-                                <li class="flex items-start gap-2.5">
-                                    <svg class="w-5 h-5 text-teal-500 dark:text-teal-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/>
-                                    </svg>
-                                    <span class="text-sm text-navy-600 dark:text-navy-300">{{ $interest }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </x-info-card>
+                    </div>
                 </div>
+
             </div>
         </div>
-    </section>
+    </div>
 @endsection
