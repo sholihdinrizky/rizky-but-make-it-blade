@@ -101,7 +101,7 @@
                                 </div>
                                 <p class="text-sm font-medium text-[var(--color-muted-light)] dark:text-[var(--color-muted-dark)] mb-3">{{ $exp['company'] }}</p>
                                 @if($exp['desc'] !== '<!-- EDIT ME: Add factual details about the internship -->')
-                                    <p class="text-sm text-[var(--color-text-light)] dark:text-white/80 leading-relaxed">{{ $exp['desc'] }}</p>
+                                    <p class="text-sm text-[var(--color-text-light)] dark:text-white/80 leading-relaxed">{!! nl2br(e($exp['desc'])) !!}</p>
                                 @endif
                             </div>
                         @empty

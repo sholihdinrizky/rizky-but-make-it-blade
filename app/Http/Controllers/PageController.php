@@ -98,10 +98,28 @@ class PageController extends Controller
 
         $experience = [
             [
-                'role' => 'Software Engineering Intern',
-                'company' => '<!-- EDIT ME: Add company name -->',
-                'period' => '<!-- EDIT ME: Add period -->',
-                'desc' => '<!-- EDIT ME: Add factual details about the internship -->',
+                'role' => 'Software Engineer Intern',
+                'company' => 'PT Nexgen Ega Teknologi',
+                'period' => 'Jul 2026 - Aug 2026',
+                'desc' => "Participated in an independent engineering internship program focused on developing production-grade enterprise software architecture.\n\nKey Responsibilities & Deliverables:\n• Architected and developed the End-to-End MAXIMA B2B ERP system (Frontend & Backend).\n• Built high-performance, deterministic RESTful APIs using Go (Golang), Gin framework, and GORM ORM.\n• Designed relational database schemas and automated data migrations utilizing PostgreSQL.\n• Implemented secure authentication and authorization pipelines with Bcrypt password hashing.\n• Developed responsive and reactive user interfaces using modern Frontend architecture.",
+            ],
+            [
+                'role' => 'Operational Division Staff',
+                'company' => 'Schematics ITS',
+                'period' => 'Mar 2025 - Feb 2026',
+                'desc' => "Served as core Operational Division staff for Schematics ITS, the largest annual national-scale technology event hosted by Informatics Engineering ITS, supporting 1,000+ participants nationwide.\n\nKey Contributions & Responsibilities:\n• Orchestrated end-to-end venue logistics, on-ground operations, and infrastructure readiness for over 1,000 national participants across major competitions (NLC, NPC, and BST).\n• Managed resource allocation, procurement distribution, and physical-technical setups to achieve seamless event execution with zero operational downtime.\n• Directed high-volume crowd flow, seating allocations, and contingency protocols during the offline final rounds and main exhibition stages.\n• Collaborated cross-functionally with technical committees and external vendors to maintain timeline precision across all event milestones.",
+            ],
+            [
+                'role' => 'Delegate',
+                'company' => 'Model United Nations Club, ITS',
+                'period' => 'Feb 2025 - Jan 2026',
+                'desc' => 'Coordinated the preparation of essential documents and permits required for international delegates. Developed structured training schedules to ensure delegates are well-prepared for national and international MUN conferences. Supported all administrative and logistic preparations for delegate representation of ITS in MUN events.',
+            ],
+            [
+                'role' => 'Administrative Intern',
+                'company' => 'BPBD Jawa Timur',
+                'period' => 'Nov 2023 - Dec 2023',
+                'desc' => 'Managed around 20+ administrative documents, ensuring proper archiving and digitization. Assisted in data entry and document processing, improving organizational efficiency. Supported event coordination by handling documentation and technical operations.',
             ],
         ];
 
