@@ -5,22 +5,7 @@
 @section('content')
     {{-- Header with small 3D scene --}}
     <section class="relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-teal-900 dark:from-navy-950 dark:via-navy-900 dark:to-teal-950">
-        <div class="absolute inset-0 scene-container" data-scene="header" aria-hidden="true"
-             style="aspect-ratio: 21/9; min-height: 100%;">
-            <div class="scene-fallback absolute inset-0 opacity-20">
-                <svg class="w-full h-full" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <circle cx="400" cy="150" r="6" fill="white" opacity="0.8"/>
-                    <circle cx="200" cy="80" r="3" fill="white" opacity="0.4"/>
-                    <circle cx="600" cy="100" r="4" fill="white" opacity="0.5"/>
-                    <circle cx="300" cy="220" r="3" fill="white" opacity="0.3"/>
-                    <circle cx="550" cy="230" r="3" fill="white" opacity="0.3"/>
-                    <line x1="400" y1="150" x2="200" y2="80" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="150" x2="600" y2="100" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="150" x2="300" y2="220" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="150" x2="550" y2="230" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                </svg>
-            </div>
-        </div>
+
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
             <p class="text-teal-300 font-display font-semibold text-sm tracking-widest uppercase mb-3" data-reveal>Research Project</p>
             <h1 class="font-display font-bold text-2xl sm:text-3xl lg:text-4xl text-white max-w-3xl leading-tight" data-reveal>

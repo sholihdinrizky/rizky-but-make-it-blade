@@ -36,18 +36,3 @@ if (!prefersReducedMotion) {
     });
 }
 
-// Load Three.js scene only on pages with [data-scene]
-const sceneContainers = document.querySelectorAll('[data-scene]');
-if (sceneContainers.length > 0) {
-    import('./scene.js')
-        .then(({ initScene }) => {
-            sceneContainers.forEach((container) => {
-                const sceneType = container.dataset.scene;
-                initScene(container, sceneType);
-            });
-        })
-        .catch((err) => {
-            // WebGL or import failure — fallback already visible
-            console.warn('3D scene unavailable, using fallback.', err.message);
-        });
-}

@@ -16,28 +16,7 @@
 
     {{-- Hero section --}}
     <section class="relative overflow-hidden min-h-[60svh] flex items-center">
-        {{-- 3D scene canvas --}}
-        <div class="absolute inset-0 scene-container" data-scene="hero" aria-hidden="true"
-             style="aspect-ratio: 16/9; min-height: 100%;">
-            {{-- WebGL fallback --}}
-            <div class="scene-fallback absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-teal-900 dark:from-navy-950 dark:via-navy-900 dark:to-teal-950">
-                <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <circle cx="400" cy="300" r="8" fill="white" opacity="0.8"/>
-                    <circle cx="200" cy="150" r="4" fill="white" opacity="0.4"/>
-                    <circle cx="600" cy="200" r="5" fill="white" opacity="0.5"/>
-                    <circle cx="150" cy="400" r="3" fill="white" opacity="0.3"/>
-                    <circle cx="650" cy="450" r="4" fill="white" opacity="0.4"/>
-                    <circle cx="350" cy="100" r="3" fill="white" opacity="0.3"/>
-                    <circle cx="500" cy="500" r="5" fill="white" opacity="0.5"/>
-                    <line x1="400" y1="300" x2="200" y2="150" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="300" x2="600" y2="200" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="300" x2="150" y2="400" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="300" x2="650" y2="450" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="300" x2="350" y2="100" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                    <line x1="400" y1="300" x2="500" y2="500" stroke="white" stroke-width="0.5" opacity="0.2"/>
-                </svg>
-            </div>
-        </div>
+
 
         {{-- Hero content --}}
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
