@@ -1,58 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# AgentCareer — Personalized Agentic AI Portfolio
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A personal academic portfolio website showcasing research on **Personalized Agentic AI for Intelligent Job Discovery and Application Preparation** — an AI career agent that analyzes user profiles, discovers relevant job opportunities, and tailors application materials.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Three-page portfolio**: Home (with interactive 3D hero), Profile, and Research Ideas
+- **7-stage agent pipeline visualization**: From profile intake to application kit delivery
+- **Idea submission form**: Server-side validated with per-field error messages
+- **Dark mode**: URL parameter-driven (`?mode=dark`) with full design parity
+- **3D career-matching network**: Three.js scene with ambient rotation, mouse parallax, and performance optimizations
+- **Responsive design**: Tested from 320px to 1920px with mobile hamburger menu
+- **Zero CDN dependencies**: All fonts, CSS, and JS bundled via Vite
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Laravel 13 (PHP 8.5)
+- Blade templating with custom components
+- Tailwind CSS v4 with `@tailwindcss/vite`
+- Vite 8 for asset bundling
+- Three.js for 3D visualization
+- Inter + Space Grotesk fonts via @fontsource
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Getting Started
 
 ```bash
-composer require laravel/boost --dev
+# Install PHP dependencies
+composer install
 
-php artisan boost:install
+# Install Node dependencies
+npm install
+
+# Configure environment
+cp .env.example .env
+php artisan key:generate
+
+# Development (with hot-reload)
+npm run dev
+php artisan serve
+
+# Production build
+npm run build
+php artisan serve
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## Project Structure
 
-## Contributing
+```
+app/Http/Controllers/PageController.php  — Single controller for all pages
+routes/web.php                           — Route definitions
+resources/views/layouts/app.blade.php    — Master layout
+resources/views/partials/               — Navbar and footer
+resources/views/components/             — Blade components (info-card, status-banner, etc.)
+resources/views/beranda.blade.php       — Home page
+resources/views/profil.blade.php        — Profile page
+resources/views/ide-agent.blade.php     — Research Ideas page
+resources/js/scene.js                   — Three.js career-matching network
+resources/css/app.css                   — Design system and Tailwind config
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Author
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Muhammad Sholihuddin Rizky** — 5025241171  
+Informatics Engineering, Institut Teknologi Sepuluh Nopember (ITS)
